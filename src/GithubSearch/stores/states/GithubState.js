@@ -23,7 +23,7 @@ export const GithubState = props => {
       const repoData = await apiCaller(
         `search/repositories?q=${query}_in:name&per_page=25`
       );
-      const data = sortAscByName(dataFormatter({ userData, repoData }));
+      const data = sortAscByName(dataFormatter(userData.items, repoData.items));
 
       dispatch({
         type: SEARCH_USERS_AND_REPOS,

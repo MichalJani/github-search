@@ -1,20 +1,15 @@
-export const dataFormatter = ({ userData, repoData }) => {
-  const formattedUserArray = userData.items.map(user => ({
+export const dataFormatter = (userArray, repoArray) => {
+  const formattedUserArray = userArray.map(user => ({
     id: user.id,
     name: user.login,
     url: user.html_url,
-    itemType: 'user',
-    details: { avatar_url: user.avatar_url }
+    itemType: 'User'
   }));
-  const formattedRepoArray = repoData.items.map(repo => ({
+  const formattedRepoArray = repoArray.map(repo => ({
     id: repo.id,
     name: repo.name,
     url: repo.html_url,
-    itemType: 'repo',
-    details: {
-      owner_name: repo.owner.login,
-      owner_avatar_url: repo.owner.avatar_url
-    }
+    itemType: 'Repository'
   }));
 
   return [...formattedUserArray, ...formattedRepoArray];

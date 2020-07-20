@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 
 export const ResultsItem = ({ item, active, setSelected, setHovered }) => {
-  const { name, url } = item;
+  const { name, url, itemType } = item;
 
   return (
     <ListGroupItem
@@ -21,7 +21,9 @@ export const ResultsItem = ({ item, active, setSelected, setHovered }) => {
       target='_blank'
       action
     >
-      <ListGroupItemHeading>{name}</ListGroupItemHeading>
+      <ListGroupItemHeading>
+        {name} ({itemType})
+      </ListGroupItemHeading>
       <ListGroupItemText>{url}</ListGroupItemText>
     </ListGroupItem>
   );
