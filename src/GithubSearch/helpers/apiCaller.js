@@ -1,15 +1,14 @@
 import axios from 'axios';
 
-export const searchUsers = async query => {
+export const apiCaller = async URL => {
+  const GITHUB_API = 'https://api.github.com';
+
   try {
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${query}`
-    );
-    console.log('res', res);
-    /*  console.log('res', JSON.stringify(res.data.items)); */
-    return res.data.items;
+    const res = await axios.get(`${GITHUB_API}/${URL}`);
+
+    return res.data;
   } catch (err) {
-    if (err) console.log('error fetching data', err);
+    if (err) console.error('Error fetching data', err);
   }
 };
 
@@ -34,6 +33,112 @@ const data = [
     type: 'User',
     site_admin: false,
     score: 1
+  },
+  {
+    id: 36502,
+    node_id: 'MDEwOlJlcG9zaXRvcnkzNjUwMg==',
+    name: 'git',
+    full_name: 'git/git',
+    private: false,
+    owner: {
+      login: 'git',
+      id: 18133,
+      node_id: 'MDEyOk9yZ2FuaXphdGlvbjE4MTMz',
+      avatar_url: 'https://avatars2.githubusercontent.com/u/18133?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/git',
+      html_url: 'https://github.com/git',
+      followers_url: 'https://api.github.com/users/git/followers',
+      following_url: 'https://api.github.com/users/git/following{/other_user}',
+      gists_url: 'https://api.github.com/users/git/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/git/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/git/subscriptions',
+      organizations_url: 'https://api.github.com/users/git/orgs',
+      repos_url: 'https://api.github.com/users/git/repos',
+      events_url: 'https://api.github.com/users/git/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/git/received_events',
+      type: 'Organization',
+      site_admin: false
+    },
+    html_url: 'https://github.com/git/git',
+    description:
+      'Git Source Code Mirror - This is a publish-only repository and all pull requests are ignored. Please follow Documentation/SubmittingPatches procedure for any of your improvements.',
+    fork: false,
+    url: 'https://api.github.com/repos/git/git',
+    forks_url: 'https://api.github.com/repos/git/git/forks',
+    keys_url: 'https://api.github.com/repos/git/git/keys{/key_id}',
+    collaborators_url:
+      'https://api.github.com/repos/git/git/collaborators{/collaborator}',
+    teams_url: 'https://api.github.com/repos/git/git/teams',
+    hooks_url: 'https://api.github.com/repos/git/git/hooks',
+    issue_events_url:
+      'https://api.github.com/repos/git/git/issues/events{/number}',
+    events_url: 'https://api.github.com/repos/git/git/events',
+    assignees_url: 'https://api.github.com/repos/git/git/assignees{/user}',
+    branches_url: 'https://api.github.com/repos/git/git/branches{/branch}',
+    tags_url: 'https://api.github.com/repos/git/git/tags',
+    blobs_url: 'https://api.github.com/repos/git/git/git/blobs{/sha}',
+    git_tags_url: 'https://api.github.com/repos/git/git/git/tags{/sha}',
+    git_refs_url: 'https://api.github.com/repos/git/git/git/refs{/sha}',
+    trees_url: 'https://api.github.com/repos/git/git/git/trees{/sha}',
+    statuses_url: 'https://api.github.com/repos/git/git/statuses/{sha}',
+    languages_url: 'https://api.github.com/repos/git/git/languages',
+    stargazers_url: 'https://api.github.com/repos/git/git/stargazers',
+    contributors_url: 'https://api.github.com/repos/git/git/contributors',
+    subscribers_url: 'https://api.github.com/repos/git/git/subscribers',
+    subscription_url: 'https://api.github.com/repos/git/git/subscription',
+    commits_url: 'https://api.github.com/repos/git/git/commits{/sha}',
+    git_commits_url: 'https://api.github.com/repos/git/git/git/commits{/sha}',
+    comments_url: 'https://api.github.com/repos/git/git/comments{/number}',
+    issue_comment_url:
+      'https://api.github.com/repos/git/git/issues/comments{/number}',
+    contents_url: 'https://api.github.com/repos/git/git/contents/{+path}',
+    compare_url: 'https://api.github.com/repos/git/git/compare/{base}...{head}',
+    merges_url: 'https://api.github.com/repos/git/git/merges',
+    archive_url: 'https://api.github.com/repos/git/git/{archive_format}{/ref}',
+    downloads_url: 'https://api.github.com/repos/git/git/downloads',
+    issues_url: 'https://api.github.com/repos/git/git/issues{/number}',
+    pulls_url: 'https://api.github.com/repos/git/git/pulls{/number}',
+    milestones_url: 'https://api.github.com/repos/git/git/milestones{/number}',
+    notifications_url:
+      'https://api.github.com/repos/git/git/notifications{?since,all,participating}',
+    labels_url: 'https://api.github.com/repos/git/git/labels{/name}',
+    releases_url: 'https://api.github.com/repos/git/git/releases{/id}',
+    deployments_url: 'https://api.github.com/repos/git/git/deployments',
+    created_at: '2008-07-23T14:21:26Z',
+    updated_at: '2020-07-20T09:18:28Z',
+    pushed_at: '2020-07-19T01:16:09Z',
+    git_url: 'git://github.com/git/git.git',
+    ssh_url: 'git@github.com:git/git.git',
+    clone_url: 'https://github.com/git/git.git',
+    svn_url: 'https://github.com/git/git',
+    homepage: '',
+    size: 142561,
+    stargazers_count: 33371,
+    watchers_count: 33371,
+    language: 'C',
+    has_issues: false,
+    has_projects: false,
+    has_downloads: true,
+    has_wiki: false,
+    has_pages: false,
+    forks_count: 19502,
+    mirror_url: null,
+    archived: false,
+    disabled: false,
+    open_issues_count: 35,
+    license: {
+      key: 'other',
+      name: 'Other',
+      spdx_id: 'NOASSERTION',
+      url: null,
+      node_id: 'MDc6TGljZW5zZTA='
+    },
+    forks: 19502,
+    open_issues: 35,
+    watchers: 33371,
+    default_branch: 'master',
+    score: 1.0
   },
   {
     login: 'HelKyle',

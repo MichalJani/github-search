@@ -1,0 +1,20 @@
+import React, { useContext } from 'react';
+
+import { ResultsList } from '../ResultsList';
+import { Spinner } from '../Spinner';
+
+import { GithubContext } from '../../stores';
+
+export const ResultsContainer = () => {
+  const githubContext = useContext(GithubContext);
+
+  const { loading, usersAndRepos } = githubContext;
+
+  if (loading) {
+    return <Spinner />;
+  } else if (usersAndRepos === null) {
+    return <div>Type your query and click Search!</div>;
+  } else {
+    return <ResultsList />;
+  }
+};
