@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { ListGroup } from 'reactstrap';
 
 import { ResultsItem } from '../ResultsItem';
 
@@ -67,7 +68,7 @@ export const ResultsList = () => {
   }, [hovered]);
 
   return (
-    <div>
+    <ListGroup>
       {usersAndRepos.map((item, i) => (
         <ResultsItem
           key={item.id}
@@ -77,6 +78,6 @@ export const ResultsList = () => {
           setHovered={setHovered}
         />
       ))}
-    </div>
+    </ListGroup>
   );
 };

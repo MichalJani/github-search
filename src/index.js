@@ -15,7 +15,3 @@ ReactDOM.render(
 );
 
 serviceWorker.unregister();
-
-/* up 38
-down 40
-enter 13 */

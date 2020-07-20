@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #bfd8fa;
-  padding: 10px;
+  padding-top: 50px;
+}
+
+.github-search__search-bar {
+  padding-bottom: 20px;
 }

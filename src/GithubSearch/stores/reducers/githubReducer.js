@@ -1,4 +1,4 @@
-import { SEARCH_USERS_AND_REPOS, SET_LOADING } from '../types';
+import { SEARCH_USERS_AND_REPOS, SET_LOADING, STOP_LOADING } from '../types';
 
 export const githubReducer = (state, action) => {
   switch (action.type) {
@@ -12,6 +12,11 @@ export const githubReducer = (state, action) => {
       return {
         ...state,
         loading: true
+      };
+    case STOP_LOADING:
+      return {
+        ...state,
+        loading: false
       };
     default:
       return state;

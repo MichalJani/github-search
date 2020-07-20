@@ -1,33 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText
+} from 'reactstrap';
 
 export const ResultsItem = ({ item, active, setSelected, setHovered }) => {
-  const { name, url, details, itemType } = item;
+  const { name, url } = item;
 
   return (
-    <a href={url} target='_blank'>
-      <div
-        style={{ backgroundColor: `${active ? 'red' : 'blue'}` }}
-        className={`item ${active ? 'active' : ''}`}
-        onClick={() => setSelected(item)}
-        onMouseEnter={() => setHovered(item)}
-        onMouseLeave={() => setHovered(undefined)}
-      >
-        <h3>{name}</h3>
-        <div>{url}</div>
-      </div>
-    </a>
+    <ListGroupItem
+      onClick={() => setSelected(item)}
+      onMouseEnter={() => setHovered(item)}
+      onMouseLeave={() => setHovered(undefined)}
+      href={url}
+      active={active}
+      color='info'
+      tag='a'
+      target='_blank'
+      action
+    >
+      <ListGroupItemHeading>{name}</ListGroupItemHeading>
+      <ListGroupItemText>{url}</ListGroupItemText>
+    </ListGroupItem>
   );
 };
 
 ResultsItem.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  active: PropTypes.bool.isRequired,
+  setSelected: PropTypes.func.isRequired,
+  setHovered: PropTypes.func.isRequired
 };
-
-{
-  /* <img
-        src={itemType === 'user' ? details:avatarrl}
-        alt=''
-        style={{ width: '60px' }}
-      /> */
-}

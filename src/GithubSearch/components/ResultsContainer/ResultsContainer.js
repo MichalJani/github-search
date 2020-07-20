@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Row, Col } from 'reactstrap';
 
 import { ResultsList } from '../ResultsList';
 import { Spinner } from '../Spinner';
@@ -13,7 +14,7 @@ export const ResultsContainer = () => {
   if (loading) {
     return <Spinner />;
   } else if (usersAndRepos === null) {
-    return <div>Type your query and click Search!</div>;
+    return <>Type your query and click Search!</>;
   } else {
     return <ResultsList />;
   }

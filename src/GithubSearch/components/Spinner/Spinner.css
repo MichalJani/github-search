@@ -1,3 +1,9 @@
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .lds-circle {
   display: inline-block;
   transform: translateZ(1px);
@@ -12,6 +18,7 @@
   background: black;
   animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 @keyframes lds-circle {
   0%,
   100% {
