@@ -6,10 +6,10 @@ export const searchUsers = async query => {
       `https://api.github.com/search/users?q=${query}`
     );
     console.log('res', res);
-    console.log('res', JSON.stringify(res.data.items));
+    /*  console.log('res', JSON.stringify(res.data.items)); */
     return res.data.items;
   } catch (err) {
-    console.log(err);
+    if (err) console.log('error fetching data', err);
   }
 };
 

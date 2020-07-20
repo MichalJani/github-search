@@ -18,19 +18,27 @@ export class GithubSearch extends Component {
 
   /* const [text, setText] = useState(''); */
 
-  onSubmit = e => {
-    this.setState({
-      isLoading: true
-    });
-    /*  e.preventDefault(); */
-    if (this.state.query.length < 3) {
-      console.log('too few!');
-    } else {
-      const usersArray = searchUsers(this.state.query);
+  searchGithub = async () => {
+    try {
+      const usersArray = await searchUsers(this.state.query);
       console.log('GithubSearch -> usersArray', usersArray);
 
       this.setState({ usersFound: usersArray });
+    } catch (err) {
+      if (err) console.log('error', err);
+    }
+  };
 
+  onSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      isLoading: true
+    });
+
+    if (this.state.query.length < 3) {
+      console.log('too few!');
+    } else {
+      this.searchGithub();
       /*  setText(''); */
     }
     this.setState({ isLoading: false });
@@ -61,7 +69,7 @@ export class GithubSearch extends Component {
         {/* results list */}
         {this.state.isLoading ? (
           <Spinner />
-        ) : (
+        ) : this.state.usersFound.length > 0 ? (
           this.state.usersFound.map(user => (
             <div className='card text-center'>
               <img
@@ -75,6 +83,8 @@ export class GithubSearch extends Component {
               <div></div>
             </div>
           ))
+        ) : (
+          <div> 'search'</div>
         )}
       </div>
     );
