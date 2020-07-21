@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+
 import { AlertContext } from '../contexts';
 import { alertReducer } from '../reducers';
 import { SET_ALERT, REMOVE_ALERT } from '../types';
